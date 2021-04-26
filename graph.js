@@ -43,6 +43,27 @@ class Graph {
 		}
 		this.nodes.delete(vertex);
 	}
+
+	// this function returns an array of Node values using DFS
+	depthFirstSearch (start) {
+		let toVisitStack = [ start ]; // start by exploring connections from the start
+		let seen = new Set();
+		let result = [];
+		seen.add(start);
+
+		while (toVisitStack.length) {
+			let curr = toVisitStack.pop();
+			result.push(curr.value);
+
+			for (let neighbor of curr.adjacent) {
+				if (!seen.has(neighbor)) {
+					toVisitStack.push(neighbor);
+					seen.add(neighbor);
+				}
+			}
+		}
+		return result;
+	}
 }
 
 module.exports = { Graph, Node };
