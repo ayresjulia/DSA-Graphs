@@ -21,6 +21,12 @@ class Graph {
 			this.addVertex(node);
 		}
 	}
+
+	// this function accepts two vertices and updates their adjacent values to include the other vertex
+	addEdge (v1, v2) {
+		v1.adjacent.add(v2);
+		v2.adjacent.add(v1);
+	}
 }
 
 module.exports = { Graph, Node };
