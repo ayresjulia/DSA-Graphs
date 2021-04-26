@@ -33,6 +33,16 @@ class Graph {
 		v1.adjacent.delete(v2);
 		v2.adjacent.delete(v1);
 	}
+
+	// this function accepts a vertex and removes it from the nodes property, it also updates any adjacency lists that include that vertex
+	removeVertex (vertex) {
+		for (let node of this.nodes) {
+			if (node.adjacent.has(vertex)) {
+				node.adjacent.delete(vertex);
+			}
+		}
+		this.nodes.delete(vertex);
+	}
 }
 
 module.exports = { Graph, Node };
