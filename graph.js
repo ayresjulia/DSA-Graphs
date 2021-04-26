@@ -14,6 +14,13 @@ class Graph {
 	addVertex (vertex) {
 		this.nodes.add(vertex);
 	}
+
+	// this function accepts an array of Node instances and adds them to the nodes property on the graph
+	addVertices (vertexArray) {
+		for (let node of vertexArray) {
+			this.addVertex(node);
+		}
+	}
 }
 
 module.exports = { Graph, Node };
